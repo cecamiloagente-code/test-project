@@ -1,6 +1,6 @@
-# Test Project
+# Hola Mundo en 20 idiomas
 
-Proyecto minimo para ejecutar pruebas con el runner nativo de Node.js.
+Pagina estatica animada con saludos en 20 idiomas.
 
 ## Uso
 
@@ -8,3 +8,4 @@ Proyecto minimo para ejecutar pruebas con el runner nativo de Node.js.
 npm test
 ```
 
+La pagina principal esta en `index.html`.
