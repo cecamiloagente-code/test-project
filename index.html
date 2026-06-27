@@ -73,74 +73,31 @@
       .spark:nth-child(5) { left: 91%; top: 76%; animation-delay: -6s; }
 
       main {
-        width: min(1180px, calc(100% - 32px));
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        width: min(100%, 1180px);
         margin: 0 auto;
-        padding: 56px 0 40px;
+        padding: 32px;
       }
 
       .hero {
         display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
-        gap: 34px;
-        align-items: center;
-        min-height: 50vh;
-      }
-
-      .eyebrow {
-        display: inline-flex;
-        gap: 10px;
-        align-items: center;
-        margin: 0 0 16px;
-        color: var(--gold);
-        font-size: 0.84rem;
-        font-weight: 800;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-
-      .eyebrow::before {
-        width: 36px;
-        height: 2px;
-        content: "";
-        background: var(--gold);
-      }
-
-      h1 {
-        max-width: 820px;
-        margin: 0;
-        font-size: clamp(3rem, 9vw, 7.5rem);
-        line-height: 0.88;
-        letter-spacing: 0;
-      }
-
-      h1 span {
-        display: block;
-        color: transparent;
-        background: linear-gradient(90deg, var(--cyan), var(--gold), var(--rose), var(--mint));
-        background-clip: text;
-        -webkit-background-clip: text;
-        animation: shimmer 7s ease-in-out infinite alternate;
-        background-size: 220% 100%;
-      }
-
-      .lead {
-        max-width: 650px;
-        margin: 24px 0 0;
-        color: var(--muted);
-        font-size: clamp(1rem, 2vw, 1.25rem);
-        line-height: 1.7;
+        place-items: center;
+        width: 100%;
       }
 
       .globe-wrap {
         position: relative;
-        min-height: 360px;
+        min-height: min(88vmin, 680px);
+        width: min(88vmin, 680px);
         display: grid;
         place-items: center;
       }
 
       .globe {
         position: relative;
-        width: min(78vw, 360px);
+        width: min(70vmin, 520px);
         aspect-ratio: 1;
         border: 1px solid rgba(255, 255, 255, 0.28);
         border-radius: 50%;
@@ -184,7 +141,7 @@
         top: 50%;
         left: 50%;
         width: max-content;
-        transform: rotate(var(--angle)) translateX(min(30vw, 152px)) translateY(-50%);
+        transform: rotate(var(--angle)) translateX(min(29vmin, 216px)) translateY(-50%);
         transform-origin: 0 0;
       }
 
@@ -208,112 +165,10 @@
         animation: counter-spin 28s linear infinite, pulse 3.6s ease-in-out infinite;
       }
 
-      .languages {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 14px;
-        margin-top: 34px;
-      }
-
-      .card {
-        position: relative;
-        min-height: 136px;
-        padding: 18px;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 8px;
-        background: var(--panel);
-        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18);
-        backdrop-filter: blur(16px);
-        animation: rise 600ms ease both, breathe 6s ease-in-out infinite;
-        transition:
-          transform 180ms ease,
-          border-color 180ms ease,
-          background 180ms ease;
-      }
-
-      .card::before {
-        position: absolute;
-        inset: 0;
-        content: "";
-        background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent 48%);
-        opacity: 0;
-        transition: opacity 180ms ease;
-      }
-
-      .card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(255, 255, 255, 0.34);
-        background: var(--panel-strong);
-      }
-
-      .card:hover::before {
-        opacity: 1;
-      }
-
-      .language {
-        position: relative;
-        z-index: 1;
-        margin: 0 0 18px;
-        color: var(--muted);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-
-      .hello {
-        position: relative;
-        z-index: 1;
-        margin: 0;
-        font-size: clamp(1.35rem, 2.2vw, 2rem);
-        font-weight: 850;
-        line-height: 1.1;
-        overflow-wrap: anywhere;
-      }
-
-      .card:nth-child(4n + 1) .hello { color: var(--cyan); }
-      .card:nth-child(4n + 2) .hello { color: var(--gold); }
-      .card:nth-child(4n + 3) .hello { color: var(--rose); }
-      .card:nth-child(4n + 4) .hello { color: var(--mint); }
-
-      .card:nth-child(1) { animation-delay: 40ms; }
-      .card:nth-child(2) { animation-delay: 80ms; }
-      .card:nth-child(3) { animation-delay: 120ms; }
-      .card:nth-child(4) { animation-delay: 160ms; }
-      .card:nth-child(5) { animation-delay: 200ms; }
-      .card:nth-child(6) { animation-delay: 240ms; }
-      .card:nth-child(7) { animation-delay: 280ms; }
-      .card:nth-child(8) { animation-delay: 320ms; }
-      .card:nth-child(9) { animation-delay: 360ms; }
-      .card:nth-child(10) { animation-delay: 400ms; }
-      .card:nth-child(11) { animation-delay: 440ms; }
-      .card:nth-child(12) { animation-delay: 480ms; }
-      .card:nth-child(13) { animation-delay: 520ms; }
-      .card:nth-child(14) { animation-delay: 560ms; }
-      .card:nth-child(15) { animation-delay: 600ms; }
-      .card:nth-child(16) { animation-delay: 640ms; }
-      .card:nth-child(17) { animation-delay: 680ms; }
-      .card:nth-child(18) { animation-delay: 720ms; }
-      .card:nth-child(19) { animation-delay: 760ms; }
-      .card:nth-child(20) { animation-delay: 800ms; }
-
-      footer {
-        margin-top: 38px;
-        color: rgba(255, 255, 255, 0.58);
-        font-size: 0.9rem;
-        text-align: center;
-      }
-
       @keyframes drift {
         0% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.3; }
         45% { opacity: 1; }
         100% { transform: translate3d(18px, -90px, 0) scale(1.8); opacity: 0; }
-      }
-
-      @keyframes shimmer {
-        from { background-position: 0% 50%; }
-        to { background-position: 100% 50%; }
       }
 
       @keyframes float {
@@ -335,34 +190,14 @@
         50% { filter: brightness(1.22); }
       }
 
-      @keyframes breathe {
-        0%, 100% { box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18); }
-        50% { box-shadow: 0 20px 52px rgba(71, 215, 255, 0.12); }
-      }
-
-      @keyframes rise {
-        from {
-          opacity: 0;
-          transform: translateY(18px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
       @media (max-width: 900px) {
         main {
-          padding-top: 36px;
-        }
-
-        .hero {
-          grid-template-columns: 1fr;
-          min-height: auto;
+          padding: 24px;
         }
 
         .globe-wrap {
-          min-height: 300px;
+          min-height: min(92vmin, 560px);
+          width: min(92vmin, 560px);
         }
 
         .language-orbit {
@@ -370,7 +205,7 @@
         }
 
         .language-orbit span {
-          transform: rotate(var(--angle)) translateX(min(32vw, 132px)) translateY(-50%);
+          transform: rotate(var(--angle)) translateX(min(28vmin, 150px)) translateY(-50%);
         }
 
         .language-orbit em {
@@ -379,22 +214,15 @@
           font-size: 0.6rem;
         }
 
-        .languages {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
       }
 
       @media (max-width: 560px) {
         main {
-          width: min(100% - 22px, 1180px);
+          padding: 14px;
         }
 
-        h1 {
-          font-size: clamp(2.8rem, 18vw, 4.8rem);
-        }
-
-        .languages {
-          grid-template-columns: 1fr;
+        .globe {
+          width: min(72vmin, 360px);
         }
       }
 
@@ -421,16 +249,8 @@
 
     <main>
       <section class="hero" aria-labelledby="title">
-        <div>
-          <p class="eyebrow">20 idiomas, una bienvenida</p>
-          <h1 id="title">Hola <span>Mundo</span></h1>
-          <p class="lead">
-            Una pagina animada para celebrar la primera frase clasica de la programacion
-            en veinte idiomas diferentes.
-          </p>
-        </div>
-
-        <div class="globe-wrap" aria-hidden="true">
+        <h1 id="title" hidden>Hola Mundo en 20 idiomas</h1>
+        <div class="globe-wrap" aria-label="Circulo animado con veinte idiomas">
           <div class="globe">
             <div class="language-orbit">
               <span style="--angle: 0deg; --tone: var(--cyan)"><em>Español</em></span>
@@ -457,31 +277,6 @@
           </div>
         </div>
       </section>
-
-      <section class="languages" aria-label="Hola mundo en veinte idiomas">
-        <article class="card"><p class="language">Español</p><p class="hello">Hola mundo</p></article>
-        <article class="card"><p class="language">English</p><p class="hello">Hello world</p></article>
-        <article class="card"><p class="language">Français</p><p class="hello">Bonjour le monde</p></article>
-        <article class="card"><p class="language">Deutsch</p><p class="hello">Hallo Welt</p></article>
-        <article class="card"><p class="language">Italiano</p><p class="hello">Ciao mondo</p></article>
-        <article class="card"><p class="language">Português</p><p class="hello">Olá mundo</p></article>
-        <article class="card"><p class="language">Nederlands</p><p class="hello">Hallo wereld</p></article>
-        <article class="card"><p class="language">Svenska</p><p class="hello">Hej världen</p></article>
-        <article class="card"><p class="language">Polski</p><p class="hello">Witaj świecie</p></article>
-        <article class="card"><p class="language">Türkçe</p><p class="hello">Merhaba dünya</p></article>
-        <article class="card"><p class="language">Indonesia</p><p class="hello">Halo dunia</p></article>
-        <article class="card"><p class="language">Tagalog</p><p class="hello">Kumusta mundo</p></article>
-        <article class="card"><p class="language">Kiswahili</p><p class="hello">Habari dunia</p></article>
-        <article class="card"><p class="language">Ελληνικά</p><p class="hello">Γεια σου κόσμε</p></article>
-        <article class="card"><p class="language">Русский</p><p class="hello">Привет, мир</p></article>
-        <article class="card"><p class="language">日本語</p><p class="hello">こんにちは世界</p></article>
-        <article class="card"><p class="language">中文</p><p class="hello">你好，世界</p></article>
-        <article class="card"><p class="language">한국어</p><p class="hello">안녕하세요 세계</p></article>
-        <article class="card"><p class="language">العربية</p><p class="hello">مرحبا بالعالم</p></article>
-        <article class="card"><p class="language">हिन्दी</p><p class="hello">नमस्ते दुनिया</p></article>
-      </section>
-
-      <footer>Publicado con GitHub Pages.</footer>
     </main>
   </body>
 </html>
