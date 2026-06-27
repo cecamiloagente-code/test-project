@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Hola Mundo en 20 idiomas</title>
+    <link rel="icon" href="data:," />
     <style>
       :root {
         color-scheme: dark;
@@ -151,7 +152,7 @@
           inset -34px -26px 80px rgba(0, 0, 0, 0.45),
           0 28px 90px rgba(71, 215, 255, 0.25);
         animation: float 5s ease-in-out infinite;
-        overflow: hidden;
+        overflow: visible;
       }
 
       .globe::before,
@@ -170,26 +171,41 @@
         animation: spin 8s linear infinite;
       }
 
-      .orbit {
+      .language-orbit {
         position: absolute;
         inset: 8%;
         border: 1px dashed rgba(255, 255, 255, 0.24);
         border-radius: 50%;
-        animation: spin 12s linear infinite;
+        animation: spin 28s linear infinite;
       }
 
-      .orbit strong {
+      .language-orbit span {
         position: absolute;
-        top: -18px;
+        top: 50%;
         left: 50%;
-        padding: 8px 12px;
+        width: max-content;
+        transform: rotate(var(--angle)) translateX(min(30vw, 152px)) translateY(-50%);
+        transform-origin: 0 0;
+      }
+
+      .language-orbit em {
+        display: inline-flex;
+        min-width: 64px;
+        justify-content: center;
+        padding: 7px 10px;
         border-radius: 999px;
-        background: rgba(8, 11, 18, 0.74);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transform: translateX(-50%);
-        color: var(--gold);
-        font-size: 0.9rem;
+        background: rgba(8, 11, 18, 0.7);
+        border: 1px solid color-mix(in srgb, var(--tone), white 18%);
+        color: var(--tone);
+        font-size: 0.7rem;
+        font-style: normal;
+        font-weight: 850;
+        letter-spacing: 0;
+        line-height: 1;
         white-space: nowrap;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+        transform: rotate(calc(var(--angle) * -1));
+        animation: counter-spin 28s linear infinite, pulse 3.6s ease-in-out infinite;
       }
 
       .languages {
@@ -209,7 +225,7 @@
         background: var(--panel);
         box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18);
         backdrop-filter: blur(16px);
-        animation: rise 600ms ease both;
+        animation: rise 600ms ease both, breathe 6s ease-in-out infinite;
         transition:
           transform 180ms ease,
           border-color 180ms ease,
@@ -309,6 +325,21 @@
         to { transform: rotate(360deg); }
       }
 
+      @keyframes counter-spin {
+        from { transform: rotate(calc(var(--angle) * -1)); }
+        to { transform: rotate(calc((var(--angle) * -1) - 360deg)); }
+      }
+
+      @keyframes pulse {
+        0%, 100% { filter: brightness(1); }
+        50% { filter: brightness(1.22); }
+      }
+
+      @keyframes breathe {
+        0%, 100% { box-shadow: 0 16px 44px rgba(0, 0, 0, 0.18); }
+        50% { box-shadow: 0 20px 52px rgba(71, 215, 255, 0.12); }
+      }
+
       @keyframes rise {
         from {
           opacity: 0;
@@ -332,6 +363,20 @@
 
         .globe-wrap {
           min-height: 300px;
+        }
+
+        .language-orbit {
+          inset: 10%;
+        }
+
+        .language-orbit span {
+          transform: rotate(var(--angle)) translateX(min(32vw, 132px)) translateY(-50%);
+        }
+
+        .language-orbit em {
+          min-width: 54px;
+          padding: 6px 8px;
+          font-size: 0.6rem;
         }
 
         .languages {
@@ -387,7 +432,28 @@
 
         <div class="globe-wrap" aria-hidden="true">
           <div class="globe">
-            <div class="orbit"><strong>Hello World</strong></div>
+            <div class="language-orbit">
+              <span style="--angle: 0deg; --tone: var(--cyan)"><em>Español</em></span>
+              <span style="--angle: 18deg; --tone: var(--gold)"><em>English</em></span>
+              <span style="--angle: 36deg; --tone: var(--rose)"><em>Français</em></span>
+              <span style="--angle: 54deg; --tone: var(--mint)"><em>Deutsch</em></span>
+              <span style="--angle: 72deg; --tone: var(--cyan)"><em>Italiano</em></span>
+              <span style="--angle: 90deg; --tone: var(--gold)"><em>Português</em></span>
+              <span style="--angle: 108deg; --tone: var(--rose)"><em>Nederlands</em></span>
+              <span style="--angle: 126deg; --tone: var(--mint)"><em>Svenska</em></span>
+              <span style="--angle: 144deg; --tone: var(--cyan)"><em>Polski</em></span>
+              <span style="--angle: 162deg; --tone: var(--gold)"><em>Türkçe</em></span>
+              <span style="--angle: 180deg; --tone: var(--rose)"><em>Indonesia</em></span>
+              <span style="--angle: 198deg; --tone: var(--mint)"><em>Tagalog</em></span>
+              <span style="--angle: 216deg; --tone: var(--cyan)"><em>Kiswahili</em></span>
+              <span style="--angle: 234deg; --tone: var(--gold)"><em>Ελληνικά</em></span>
+              <span style="--angle: 252deg; --tone: var(--rose)"><em>Русский</em></span>
+              <span style="--angle: 270deg; --tone: var(--mint)"><em>日本語</em></span>
+              <span style="--angle: 288deg; --tone: var(--cyan)"><em>中文</em></span>
+              <span style="--angle: 306deg; --tone: var(--gold)"><em>한국어</em></span>
+              <span style="--angle: 324deg; --tone: var(--rose)"><em>العربية</em></span>
+              <span style="--angle: 342deg; --tone: var(--mint)"><em>हिन्दी</em></span>
+            </div>
           </div>
         </div>
       </section>
